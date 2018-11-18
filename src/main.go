@@ -2,13 +2,13 @@ package main
 
 import (
 	_ "fmt"
-	"time"
 	"log"
 	"os"
+	"time"
 
-	tb "gopkg.in/tucnak/telebot.v2"
 	"github.com/dghubble/go-twitter/twitter"
 	"github.com/dghubble/oauth1"
+	tb "gopkg.in/tucnak/telebot.v2"
 )
 
 func main() {
@@ -36,7 +36,7 @@ func main() {
 
 		// Send a Tweet
 		//tweet, resp, err := client.Statuses.Update("just setting up my twttr", nil)
-		_, _, err := client.Statuses.Update("tweet from go-twitter", nil)
+		_, _, err := client.Statuses.Update(m.Payload, nil)
 
 		if err != nil {
 			log.Fatal(err)
@@ -51,15 +51,14 @@ func main() {
 		// all the text messages that weren't
 		// captured by existing handlers
 	})
-	
+
 	b.Handle(tb.OnPhoto, func(m *tb.Message) {
 		// photos only
 	})
-	
-	b.Handle(tb.OnChannelPost, func (m *tb.Message) {
+
+	b.Handle(tb.OnChannelPost, func(m *tb.Message) {
 		// channel posts only
 	})
-	
 
 	b.Start()
 }
