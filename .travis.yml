@@ -1,0 +1,9 @@
+language: go
+go:
+  - "1.10"
+
+before_install:
+- go get -v github.com/golang/lint/golint
+- go get -v gopkg.in/tucnak/telebot.v2
+- go get -v github.com/dghubble/go-twitter/twitter
+- go get -v github.com/dghubble/oauth1
