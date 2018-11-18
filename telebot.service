@@ -1,0 +1,12 @@
+[Unit]
+Description=A telegram bot
+After=network.target
+
+[Service]
+Type=simple
+User=nobody
+EnvironmentFile=-/etc/telebot.env
+ExecStart=/usr/bin/telebot
+
+[Install]
+WantedBy=multi-user.target
